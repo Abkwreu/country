@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+
+        // list of countries
+
+        let countries = [
+            "'Ad", "Aachen", "Abbasids", "Abe", "Abenaki", "Abhira", "Abkhazia", "Aceh", "Achaea", "Adachi", "Adal", "Aden", "Adiabene", "Adulis", "Afar", "Afghanistan", "Agder", "Ahmednagar", "Ainu", "Air", "Ajam", "Ajmer", "Ajuuraan", "Akamatsu", "Aksum", "Alania", "Alaska", "Alba", "Albania", "Albania", "Alemannia", "Alençon", "Algeciras", "Algeria", "Almeria", "Alodia", "Altava", "Alvakheda", "Amago", "Andalusia", "Andhra", "Ando", "Anglia", "Angola", "Angora", "Anhalt", "Anizah", "Anjou", "Annam", "Ansbach", "Antaisaka", "Antemoro", "Antes", "Antigua and Barbuda", "Antioch", "Apache", "Aq Qoyunlu", "Aquileia", "Aquitaine", "Arabia", "Aragon", "Arakan", "Arapaho", "Arawak", "Ardabil", "Ardalan", "Argentina", "Arjunayanas", "Armagnac", "Armenia", "Asakura", "Ashanti", "Ashikaga", "Asir", "Assam", "Assiniboine", "Assyria", "Astarabad", "Astrakhan", "Asturias", "Athens", "Atlas", "Atrebatia", "Atropatene", "Augsburg", "Aures", "Aussa", "Australia", "Austrasia", "Austria", "Auvergne", "Ava", "Avalites", "Avaria", "Avignon", "Ay", "Aydin", "Ayutthaya", "Azerbaijan", "Aztec", "Babylonia", "Bactria", "Badajoz", "Baden", "Baekje", "Baghelkhand", "Bagirmi", "Baglana", "Bahamas", "Bahmanis", "Bahrain", "Baleares", "Balhae", "Bali", "Baluchistan", "Bamberg", "Bangladesh", "Banjar", "Banten", "Banu Nadir", "Bar", "Bara", "Barbados", "Barghawata", "Bari", "Baroda", "Barus", "Bashkiria", "Basra", "Bastar", "Bautzen", "Bavaria", "Bayreuth", "Beja", "Belarus", "Belgium", "Belize", "Beloozero", "Benevento", "Bengal", "Benin", "Berar", "Berg", "Bernicia", "Berry", "Betsimisaraka", "Bharat", "Bhutan", "Biapas", "Bijapur", "Bishnupur", "Bitlis", "Bjarmia", "Blackfoot", "Blambangan", "Blemmyes", "Blue Horde", "Bohemia", "Boina", "Bolivia", "Bologna", "Bonoman", "Bosnia", "Bosnia and Herzegovina", "Bosporus", "Botswana", "Bourbonnais", "Bozhou", "Brabant", "Brandenburg", "Brazil", "Bregenz", "Bremen", "Brescia", "Brigantia", "Britannia", "Brittany", "Brunei", "Brunswick", "Buenos Aires", "Buganda", "Buha", "Bukhara", "Bulgaria", "Bulungan", "Bundelkhand", "Bunyoro", "Burgundy", "Burkina Faso", "Burma", "Burtas", "Burundi", "Buryatia", "Busoga", "Buton", "Butua", "Butuan", "Buyeo", "Byzantium", "Caddo", "Cahokia", "Cajamarca", "Calakmul", "Calchaqui", "Calenberg", "Calicut", "California", "Cambodia", "Cambrai", "Cameroon", "Can Pech", "Canada", "Candar", "Cape Verde", "Cappadocia", "Carib", "Carinthia", "Carnatic", "Carniola", "Cascadia", "Castile", "Catalonia", "Catuvellaunia", "Cebu", "Central Africa", "Central Italy", "Chach", "Chachapoya", "Chactemal", "Chad", "Chagatai", "Chahar", "Chalukya", "Champa", "Champagne", "Champasak", "Chanda", "Changsheng", "Chantaburi", "Characene", "Charca", "Charrua", "Chaucia", "Chavchuveny", "Chen", "Cheng", "Chenla", "Chera", "Chernigov", "Cherokee", "Cheruscia", "Cheyenne", "Chiang Hung", "Chiba", "Chichimeca", "Chickasaw", "Chile", "Chimu", "China", "Chinook", "Choctaw", "Chokwe", "Chola", "Cholula", "Chorti", "Chosokabe", "Chouchi", "Chu", "Chuban", "Chud", "Chukchi", "Chupicuaro", "Chur", "Chutu", "Cilli", "Circassia", "Cirebon", "Cleves", "Coburg", "Cocomes", "Coixtlahuaca", "Colima", "Colla", "Cologne", "Colombia", "Comanche", "Commagene", "Commonwealth", "Comoros", "Confederate States", "Congo-Brazzaville", "Congo-Kinshasa", "Connacht", "Constantinople", "Cook Islands", "Copan", "Cordoba", "Corduene", "Corfu", "Corieltauvia", "Cornouaille", "Cornovia", "Cornwall", "Corsica", "Costa Rica", "Cottia", "Cree", "Creek", "Crete (Arabic)", "Crete (Greek)", "Crimea", "Croatia", "Cuba", "Cumania", "Cuneo", "Curonia", "Cusco", "Cyprus", "Cyrenaica", "Czechia", "Czechoslovakia", "Dacia", "Dagbon", "Dahomey", "Dai", "Dai Viet", "Daksina", "Dál Riata", "Dali", "Dalmatia", "Damot", "Dang", "Danishmend", "Danzig", "Darfur", "Dasarna", "Date", "Dauphine", "Dawaro", "Dawasir", "Deccan", "Deheubarth", "Deira", "Delhi", "Demak", "Denia", "Denmark", "Dervish", "Desmond", "Deva", "Dharmasraya", "Dhundhar", "Dithmarschen", "Divrigi", "Djibouti", "Dominica", "Dominican Republic", "Domnonia", "Donauwörth", "Dongbuyeo", "Donghai", "Dongola", "Dongye", "Dortmund", "Doti", "Dregovichia", "Drevlia", "Duklja", "Dulkadir", "Dumakru", "Dumnonia", "Durotrigia", "Dvaravati", "Dyfed", "Dzungar", "East Anglia", "East Francia", "East Frisia", "East Geats", "East Germany", "East Timor", "Ecuador", "Edessa", "Egypt", "Egypt (Ancient)", "El Salvador", "Elmet", "Elymais", "Emishi", "England", "Ennarea", "Epirus", "Equatorial Guinea", "Eretna", "Eritrea", "Essex", "Estonia", "Eswatini", "Ethiopia", "Etruria", "European Union", "Fadl", "Farghana", "Fars", "Fatimids", "Ferghana", "Ferrara", "Fez", "Fezzan", "Fiji", "Finland", "Flanders", "Florence", "Florida", "Foix", "Fox", "France", "France", "Francia", "Franconia", "Frankfurt", "Friesland", "Frisia", "Fujiwara", "Fulo", "Funan", "Funj", "Gabes", "Gabon", "Gaetulia", "Gafsa", "Gahadvala", "Galicia", "Galicia–Volhynia", "Gallia", "Galuh", "Gambia", "Gandhara", "Ganga", "Gangga Negara", "Ganja", "Gansu", "Garamantia", "Garha", "Garhwal", "Garjat", "Gascony", "Gaya", "Gazikumukh", "Geledi", "Gelre", "Geneva", "Genoa", "Georgia", "Gepidia", "Germany", "Germiyan", "Gerrha", "Ghana", "Ghassanids", "Ghatafan", "Ghazna", "Ghor", "Gilan", "Gingee", "Glogow", "Gododdin", "Goguryeo", "Göktürks", "Golden Horde", "Golkonda", "Gorkha", "Goslar", "Gothia", "Gotinia", "Gotland", "Granada", "Great Britain", "Great Horde", "Greater Poland", "Greece", "Greenland", "Grenada", "Guamar", "Guarani", "Guatemala", "Guge", "Guinea", "Guinea Bissau", "Guiyi", "Gujarat", "Gupta", "Gurjara-Pratihara", "Guyana", "Gwalior", "Gwent", "Gwynedd", "Haasa", "Habsan", "Hadhramaut", "Hadiya", "Hadoti", "Haida", "Hainaut", "Haiti", "Haixi", "Hålogaland", "Hamburg", "Hamid", "Han", "Hanover", "Harada", "Harar", "Harikela", "Hariphunchai", "Harran", "Hatakeyama", "Hausa", "Hawaii", "Hawazin", "Heishui Mohe", "Hejaz", "Hephthalites", "Herat", "Hermunduria", "Herulia", "Herzegovina", "Hesse", "Himyar", "Hindustan", "Hisn Kayfa", "Hobyo", "Hohokam", "Hojo", "Holland", "Holstein", "Holy Roman Empire", "Honduras", "Hordaland", "Hormuz", "Hosokawa", "Hoysala", "Hsenwi", "Hsipaw", "Huai", "Huari", "Huastec", "Hungary", "Huns", "Huron", "Huyla", "Iazygia", "Iberia", "Iceland", "Icenia", "Ichma", "Idaj", "Idar", "Ifat", "Ii", "Ikeda", "Ilkhanate", "Illiniwek", "Illinois", "Ilmenia", "Imagawa", "Imereti", "Imerina", "Inca", "India", "Indo-Greeks", "Indo-Parthia", "Indonesia", "Ingolstadt", "Iran", "Iraq", "Ireland", "Iroquois", "Isfahan", "Islamic State", "Israel", "Isshiki", "Italy", "Ito", "Itza", "Ivory Coast", "Izumo", "Jaffna", "Jaisalmer", "Jalayirids", "Jamaica", "Jamtaland", "Jan Mayen", "Jangladesh", "Janjiro", "Japan", "Jaunpur", "Jenné", "Jeongan", "Jerusalem", "Jeypore", "Jhalavad", "Jharkhand", "Ji", "Jianzhou", "Jimma", "Jin", "Jin", "Jing", "Jingnan", "Jo", "Johor", "Jolof", "Jordan", "Jorvik", "Judea", "Jülich", "Jumla", "Junagarh", "Jutland", "Kaabu", "Kabylia", "Kachar", "Kadamba", "Kaffa", "Kakatiya", "Kakheti", "Käkisalmia", "Kalabhras", "Kalachuri", "Kalahandi", "Kale", "Kalinga", "Kalingga", "Kalinjar", "Kalmyk", "Kalpi", "Kalundwe", "Kamchadals", "Kaminaljuyu", "Kandy", "Kanem Bornu", "Kangaba", "Kangar Union", "Kangju", "Kangra", "Kannauj", "Kano", "Kantoli", "Kapisa", "Kaqchikel", "Kara Del", "Kara-Khanids", "Kara-Khitai", "Karagwe", "Karaman", "Karashahr", "Karelia", "Karluks", "Kasanje", "Kashmir", "Kathmandu", "Katsina", "Kaysites", "Kazakh", "Kazakhstan", "Kazan", "Kazembe", "Kedah", "Kediri", "Keladi", "Keno", "Kent", "Kenya", "Keonhjar", "Kereits", "Keres", "Kerman", "Khalkha", "Kham", "Khamag Mongol", "Khandesh", "Kharabakh", "Khasa", "Khazaria", "Khitans", "Khiva", "Khmer", "Khodynt", "Khorasan", "Khoshuud", "Khotan", "Khwarazmia", "Kibi", "Kiche", "Kidarites", "Kiev", "Kievan Rus", "Kikondja", "Kikuchi", "Kildare", "Kilwa", "Kindah", "Kiowa", "Kiribati", "Kitabatake", "Kiyohara", "Koch", "Kochin", "Kolathunad", "Kong", "Kongo", "Kongu", "Konkan", "Kono", "Konstanz", "Konya", "Korchin", "Korea", "Kosala", "Kosambi", "Koshi", "Kosovo", "Kotte", "Krakow", "Krivichia", "Kuba", "Kucha", "Kumaon", "Kumaso", "Kumo Xi", "Kuninda", "Kurdistan", "Kurland", "Kush", "Kushan", "Kushano-Sasanians", "Kutai", "Kutch", "Kuwait", "Kvenland", "Kyrgyzstan", "Ladakh", "Laguatan", "Lakhmids", "Lamuri", "Lan Na", "Lan Xang", "Lanao", "Landshut", "Lanfang", "Langkasuka", "Laos", "Latgalia", "Latvia", "Lavo", "Lawa", "Lazica", "Lebanon", "Legnica", "Leinster", "Lenape", "Lendia", "León", "Lesotho", "Liang", "Liao", "Liberia", "Libertatia", "Libya", "Liege", "Ligor", "Lihyan", "Limburg", "Limbuwan", "Lindsey", "Lipan", "Lippe", "Lithuania", "Liu Song", "Liugu", "Livonia", "Livonian Order", "Loango", "Lombardy", "Lorraine", "Lotharingia", "Louisiana", "Luang Prabang", "Luba", "Lübeck", "Lucca", "Lunda", "Lundu", "Lüneburg", "Luristan", "Lusatia", "Luticia", "Luwu", "Luxembourg", "Lyon", "Ma'in", "Macina", "Madagascar", "Madurai", "Madyas", "Maeda", "Magadha", "Magdeburg", "Maguindanao", "Mahafaly", "Mahan", "Mahdia", "Mahican", "Mahra", "Maine", "Mainz", "Majapahit", "Majeerteen", "Majorca", "Makassar", "Makua", "Makuria", "Makwanpur", "Malacca", "Malaga", "Malawi", "Malaya", "Malaysia", "Maldives", "Mali", "Malindi", "Malta", "Malwa", "Mamluks", "Manchu", "Manchukuo", "Manipur", "Mann", "Mantua", "Mapuche", "Marathas", "Maravi", "Marcomannia", "Maregheh", "Marehan", "Mari", "Marrakesh", "Marshall Islands", "Marwar", "Masqat", "Mataram", "Matlatzinca", "Mauretania", "Mauri", "Mauritania", "Mauritius", "Maya", "Maynila", "Mazovia", "Meath", "Mecklenburg", "Medina", "Medri Bahri", "Meissen", "Memelland", "Memmingen", "Menabe", "Mentese", "Mercia", "Merkits", "Merya", "Mescalero", "Meshchera", "Mewar", "Mewat", "Mexico", "Miami", "Miao", "Micronesia", "Middle Francia", "Mikhlaf", "Mikmaq", "Milan", "Min", "Minamoto", "Ming", "Minsk", "Miskito", "Mixtec", "Moche", "Modena", "Mogadishu", "Mogollon", "Moldavia", "Moldova", "Mombasa", "Mon", "Mong Kawng", "Mong Mao", "Mong Nai", "Mong Pai", "Mong Yang", "Mongol Empire", "Mongolia", "Montenegro", "Montferrat", "Moravia", "Mordvinia", "Morea", "Mori", "Morocco", "Mossi", "Mosul", "Mozambique", "Muang Phuan", "Mughals", "Muisca", "Mulhouse", "Multan", "Munich", "Munster", "Münster", "Murcia", "Murom", "Muscovy", "Mushasha", "Mutapa", "Myanmar", "Myinsaing", "Mysore", "Mzab", "Nabataea", "Nagaur", "Nagpur", "Naimans", "Najd", "Najran", "Nakoku", "Namibia", "Namur", "Nanbu", "Nanzhao", "Naples", "Nasamonia", "Nassau", "Natalia", "Nauru", "Navajo", "Navanagar", "Navarra", "Naxos", "Nazca", "Ndongo", "Nekor", "Nenetsia", "Nepal", "Netherlands", "Neustria", "Nevers", "New Providence", "New Zealand", "Newfoundland", "Nicaea", "Nicaragua", "Nice", "Niger", "Nigeria", "Ning", "Nitra", "Nitta", "Niue", "Nivkh", "Nizhny Novgorod", "Nkore", "Nobatia", "Nogai", "Nordgau", "Normandy", "North Korea", "North Macedonia", "North Vietnam", "Northern Satraps", "Northumberland", "Norway", "Novant", "Novgorod", "Nupe", "Nuremberg", "Obotritia", "Oda", "Odoyev", "Odrysia", "Oettingen", "Offaly", "Ogasawara", "Oghuz", "Oirat", "Ojibwe", "Okjeo", "Oldenburg", "Oman", "Opole", "Orange Free State", "Ordovicia", "Orissa", "Orleans", "Ormond", "Osage", "Osnabrück", "Osraige", "Osroene", "Ostrogoths", "Otomi", "Otomo", "Ottawa", "Ottomans", "Ouarsenis", "Ouchi", "Oudh", "Owari", "Oyo", "Pacajes", "Paderborn", "Padmavati", "Padua", "Pagan", "Pagarruyung", "Pakistan", "Pala", "Palau", "Palaung", "Palembang", "Palenque", "Palestine", "Palitana", "Pallava", "Palmyra", "Pan Pan", "Panama", "Panchala", "Pandya", "Pangasinan", "Pannai", "Pannonia", "Papua New Guinea", "Paraguay", "Parlakhimidi", "Parma", "Parthia", "Pasai", "Passau", "Patan", "Pate", "Patiala", "Patna", "Pattani", "Pawnee", "Pechenegs", "Pegu", "Pequot", "Perak", "Pereyaslavl", "Perm", "Persia", "Persis", "Peru", "Perugia", "Philippines", "Picardy", "Pictland", "Pima", "Pirates", "Pisa", "Plaquemine", "Poland", "Polotsk", "Pomerania", "Pong", "Pontus", "Porbandar", "Port Royal", "Portugal", "Potawatomi", "Potiguara", "Powhatan", "Powys", "Prome", "Provence", "Prussia", "Prussians", "Pskov", "Pueblo", "Punjab", "Pushyabhuti", "Pyu", "Qara Qoyunlu", "Qarmatians", "Qasim", "Qataban", "Qatar", "Qi", "Qiang", "Qin", "Qing", "Quadia", "Quebec", "Quito", "Quraysh", "Raciborz", "Ragusa", "Rajkot", "Rajputana", "Ramazan", "Ranastambhapura", "Rashidun", "Rashtrakuta", "Rassids", "Ratanpur", "Ravenna", "Ravensberg", "Regensburg", "Rewa Kantha", "Rheged", "Rhodesia", "Riau-Lingga", "Riga", "Rio Grande", "Rogaland", "Rohilkhand", "Romania", "Rome", "Romsdal", "Rostov", "Rothenburg", "Rouran", "Rügen", "Rugiland", "Rûm", "Ruppin", "Russia", "Rwanda", "Ryazan", "Ryukyu", "Sa Huynh", "Saba", "Sabzevar", "Sadiya", "Saffarids", "Sagaing", "Saito", "Sakalava", "Salakanagara", "Salé", "Salerno", "Salish", "Saltes", "Saltukids", "Saluzzo", "Salzburg", "Samanids", "Samarkand", "Samatata", "Sambalpur", "Samo", "Samoa", "Samtskhe", "San'a", "Sandomierz", "Sanhaja", "Sao", "Sao Tome and Principe", "Sapmi", "Sarabhapuriya", "Sarawak", "Sardinia", "Sardinia-Piedmont", "Sarig Yogir", "Sarir", "Sarmatia", "Saruhan", "Sassanids", "Satake", "Satavahana", "Saudi Arabia", "Savoy", "Saxe-Lauenburg", "Saxony", "Scandinavia", "Schleswig", "Sciria", "Scotland", "Segu", "Seljuk", "Semien", "Sena", "Senegal", "Serbia", "Serbia and Montenegro", "Severia", "Seville", "Seychelles", "Shabankara", "Shah-Armens", "Shahi", "Shammar", "Shan", "Shanshan", "Shanyue", "Sharjah", "Shawnee", "Shewa", "Shiba", "Shikoku", "Shimazu", "Shirvan", "Shiwei", "Shoni", "Shoshone", "Shu", "Shule", "Shun", "Siak", "Sibir", "Sicily", "Sicily (Muslim)", "Siena", "Sierra Leone", "Sijilmasa", "Sikkim", "Silesia", "Silla", "Siluria", "Silves", "Sindh", "Singapore", "Singhasari", "Sioux", "Siracia", "Sirhind", "Sirmur", "Sistan", "Sligo", "Slovakia", "Slovenia", "Smolensk", "So", "Sofala", "Soissons", "Sokoto", "Solomon Islands", "Solon", "Somalia", "Somaliland", "Song", "Songhai", "Sonora", "Soran", "Sorbia", "South Africa", "South Korea", "South Sudan", "South Vietnam", "South Yemen", "Southern Han", "Southern Xiongnu", "Soviet Union", "Soyo", "Spain", "Spoleto", "Sri Gotapura", "Sri Lanka", "Srivijaya", "St Gall", "St. Kitts and Nevis", "St. Lucia", "St. Vincent and the Grenadines", "Stettin", "Strasbourg", "Strathclyde", "Straubing", "Styria", "Sudan", "Suebia", "Suhma", "Sui", "Sukhothai", "Sulu", "Sumo Mohe", "Sunda", "Sundgau", "Suren", "Surguja", "Suriname", "Sus", "Susquehannock", "Sussex", "Svealand", "Swabia", "Sweden", "Switzerland", "Synthetics", "Syria", "Syrmia", "Taank", "Tabaristan", "Tabriz", "Tachibana", "Tafilalt", "Tahirids", "Tahiti", "Taira", "Tairona", "Taiwan", "Tajikistan", "Takeda", "Takrur", "Tamna", "Tang", "Tanguts", "Tanjore", "Tannu Tuva", "Tanzania", "Tapuia", "Tarumanagara", "Tarumanagara", "Tatars", "Taungu", "Tavastia", "Teke", "Telingana", "Teotihuacan", "Teotitlan", "Ternate", "Tétouan", "Teuchitlan", "Teutonic Order", "Texas", "Thailand", "Thamud", "Thaton", "The Isles", "The Knights", "The Palatinate", "The Papal State", "Theodoro", "Thessalonica", "Thessaly", "Thomond", "Three Leagues", "Thuringia", "Tibet", "Tidore", "Tiele", "Tikal", "Timbuktu", "Timurids", "Tirhut", "Tirol", "Tivertsia", "Tiwanaku", "Tlapanec", "Tlaxcala", "Tlemcen", "Tmutarakan", "Togo", "Toki", "Tokugawa", "Toledo", "Toltec", "Tomar", "Tonala", "Tondo", "Tonga", "Tonkin", "Tortosa", "Tortuga", "Totonac", "Touggourt", "Toulouse", "Transoxiana", "Transylvania", "Trebizond", "Trent", "Treviso", "Trier", "Trieste", "Trinidad and Tobago", "Tripoli", "Tripoli", "Tripura", "Tsang", "Tsongkha", "Tsutsui", "Tumbuka", "Tunisia", "Tupinamba", "Tupiniquim", "Türgesh", "Turin", "Turkey", "Turkmenistan", "Turov", "Tuscany", "Tuvalu", "Tuvans", "Tuyuhun", "Tver", "Two Sicilies", "Tyo", "Tyrconnell", "Tyrone", "Tzotzil", "U", "Udege", "Uesugi", "Uganda", "Uighurs", "Ukraine", "Ulichia", "Ulm", "Ulster", "Umayyad", "United Arab Emirates", "United Central America", "United States", "Urbino", "Uruguay", "Usuki", "Utrecht", "Utsunomiya", "Uzbek", "Uzbekistan", "Vajji", "Vakataka", "Valencia", "Vandalia", "Vannes", "Vanuatu", "Vasconia", "Veletia", "Venad", "Venedi", "Venezuela", "Venice", "Vepsia", "Verden", "Vermont", "Verona", "Vestfold", "Vichy France", "Vientiane", "Vietnam", "Vijayanagar", "Visigoths", "Vistula", "Vladimir", "Volga Bulgaria", "Votadinia", "Vyatihia", "Wa", "Wadai", "Wales", "Wallachia", "Wanka", "Warsangali", "Wei", "Welayta", "Wessex", "West Francia", "West Geats", "West Germany", "West Indies", "West Rome", "Western Göktürks", "Western Sahara", "Western Satraps", "Westphalia", "White Croatia", "White Horde", "Wichita", "Wolgast", "Wroclaw", "Wu", "Wuhuan", "Wurttemberg", "Wurzburg", "Wusun", "Wuyue", "Xalisco", "Xhosa", "Xi", "Xia", "Xianbei", "Xicallanca", "Xin", "Xiongnu", "Xiu", "Xu", "Xueyantuo", "Yadava", "Yaka", "Yamana", "Yamato", "Yan", "Yao", "Yaqui", "Yarkand", "Yaroslavl", "Yas", "Yatenga", "Yaudheya", "Yaxchilan", "Yazd", "Yeha", "Yemen", "Yenisei Kyrgyz", "Yeren", "Yi", "Yilou", "Yokotan", "Yokuts", "You", "Yuan", "Yucatan", "Yue", "Yugoslavia", "Zachlumia", "Zambia", "Zanzibar", "Zaporozhie", "Zapotec", "Zaragoza", "Zazzau", "Zhangzhung", "Zhao", "Zhong", "Zhou", "Zimbabwe", "Zululand", "Zunbils", "Zuni", "Zürich"];
+
+        // simple function that creates an element in jQuery faster
+
+        const make = function (a) {
+            return $(document.createElement(a));
+        }
+
+        // https://stackoverflow.com/a/2450976/
+
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+        function addCountries() {
+
+            countries = shuffle(countries);
+
+            $("#country").empty();
+
+            $("#country").append(
+                make("option")
+                    .attr("value", "")
+                    .text("Select a country...")
+                    .attr("disabled", "true")
+                    .attr("selected", "true")
+            )
+
+            countries.forEach(
+                (a, i) => $("#country").append(
+                    make("option")
+                        .attr("value", i)
+                        .text(a)
+                )
+            )
+
+            // init materialize <select>
+            M.FormSelect.init(document.querySelectorAll('select'), {});
+
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            addCountries();
+            // $(".dropdown-trigger").click(addCountries);
+        });
+
+    </script>
+
+    <style>
+        .dropdown-content li>a,
+        .dropdown-content li>span {
+            color: #333 !important;
+        }
+
+        .select-dropdown li.disabled,
+        .select-dropdown li.disabled>span,
+        .select-dropdown li.optgroup {
+            color: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        form {
+            margin-top: 50px;
+            max-width: 500px;
+            width: 100%;
+            left: 50% !important;
+            margin-left: -250px !important;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="country">
+                        <option value="" disabled selected>Select a country...</option>
+                    </select>
+                    <label>Country</label>
+                </div>
+                <label>
+                    <input type="checkbox" class="filled-in" checked="checked" />
+                    <span>I do not agree with the <a href="https://www.youtube.com/watch?v=DLzxrzFCyOs">Terms and
+                            Conditions</a></span>
+                </label>
+        </form>
+    </div>
+</body>
+
+</html>
